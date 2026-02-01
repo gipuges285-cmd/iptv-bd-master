@@ -47,15 +47,23 @@ const reviews = [
 
 const ReviewsSection = () => {
   return (
-    <section className="py-20 bg-gradient-to-b from-background via-muted/20 to-background" id="reviews">
-      <div className="section-container">
+    <section className="py-24 relative overflow-hidden" id="reviews">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-muted/50 via-background to-muted/30" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
+      
+      <div className="section-container relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <span className="inline-block text-sm font-semibold text-primary mb-3 tracking-wide uppercase">See Our Reviews</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Check what customers say About us
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-4">
+            <Star className="w-4 h-4 text-primary fill-primary" />
+            <span className="text-sm font-bold text-primary uppercase tracking-wider">See Our Reviews</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-foreground mb-5">
+            Check what customers say <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">About us</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
             Read honest reviews and opinions from customers of IPTV BD facebook page and group. 
             Discover what others have to say about our subscription service.
           </p>
@@ -63,94 +71,72 @@ const ReviewsSection = () => {
 
         {/* Review Stats */}
         <div className="flex flex-wrap justify-center gap-6 mb-16">
-          <div className="flex items-center gap-4 bg-card rounded-2xl p-5 shadow-md border border-border/50 hover:shadow-lg hover:border-primary/20 transition-all duration-300">
-            <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
-              <Facebook className="w-7 h-7 text-blue-600" />
-            </div>
-            <div>
-              <p className="font-bold text-foreground">Facebook Group</p>
-              <div className="flex items-center gap-2">
-                <span className="text-sm text-muted-foreground">Excellent</span>
-                <div className="flex">
-                  {[1, 2, 3, 4, 5].map((i) => (
-                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                  ))}
+          {[
+            { name: "Facebook Group", reviews: "242", color: "blue" },
+            { name: "Trustpilot", reviews: "30", color: "green" },
+            { name: "Facebook Page", reviews: "189", color: "blue" },
+          ].map((stat, idx) => (
+            <div 
+              key={idx}
+              className="flex items-center gap-4 bg-card/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border-2 border-transparent hover:border-primary/20 hover:shadow-2xl transition-all duration-300 group"
+            >
+              <div className={`w-14 h-14 ${stat.color === 'blue' ? 'bg-blue-500/10' : 'bg-green-500/10'} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform`}>
+                {stat.color === 'green' ? (
+                  <Star className="w-7 h-7 text-green-500" />
+                ) : (
+                  <Facebook className="w-7 h-7 text-blue-500" />
+                )}
+              </div>
+              <div>
+                <p className="font-bold text-lg text-foreground">{stat.name}</p>
+                <div className="flex items-center gap-2">
+                  <span className="text-sm text-muted-foreground">Excellent</span>
+                  <div className="flex">
+                    {[1, 2, 3, 4, 5].map((i) => (
+                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                    ))}
+                  </div>
+                  <span className="text-sm font-bold text-primary">{stat.reviews} Reviews</span>
                 </div>
-                <span className="text-sm font-semibold text-primary">242 Reviews</span>
               </div>
             </div>
-          </div>
-
-          <div className="flex items-center gap-4 bg-card rounded-2xl p-5 shadow-md border border-border/50 hover:shadow-lg hover:border-primary/20 transition-all duration-300">
-            <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
-              <Star className="w-7 h-7 text-green-600" />
-            </div>
-            <div>
-              <p className="font-bold text-foreground">Trustpilot</p>
-              <div className="flex items-center gap-2">
-                <span className="text-sm text-muted-foreground">All Positive</span>
-                <div className="flex">
-                  {[1, 2, 3, 4, 5].map((i) => (
-                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
-                <span className="text-sm font-semibold text-primary">30 Reviews</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-4 bg-card rounded-2xl p-5 shadow-md border border-border/50 hover:shadow-lg hover:border-primary/20 transition-all duration-300">
-            <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
-              <Facebook className="w-7 h-7 text-blue-600" />
-            </div>
-            <div>
-              <p className="font-bold text-foreground">Facebook Page</p>
-              <div className="flex items-center gap-2">
-                <span className="text-sm text-muted-foreground">Excellent</span>
-                <div className="flex">
-                  {[1, 2, 3, 4, 5].map((i) => (
-                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
-                <span className="text-sm font-semibold text-primary">189 Reviews</span>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
 
         {/* Review Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {reviews.map((review) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {reviews.map((review, idx) => (
             <div 
               key={review.id} 
-              className="bg-card rounded-2xl p-6 shadow-sm border border-border/50 hover:shadow-xl hover:border-primary/20 hover:-translate-y-1 transition-all duration-300"
+              className="bg-card/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border-2 border-transparent hover:border-primary/20 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group"
+              style={{ animationDelay: `${idx * 100}ms` }}
             >
               {/* Header */}
-              <div className="flex items-start justify-between mb-5">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-md">
-                    <span className="text-white font-bold text-lg">{review.name[0]}</span>
+              <div className="flex items-start justify-between mb-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary via-violet-500 to-secondary flex items-center justify-center shadow-lg group-hover:shadow-primary/30 transition-shadow">
+                    <span className="text-white font-bold text-xl">{review.name[0]}</span>
                   </div>
                   <div>
-                    <p className="font-semibold text-foreground">{review.name}</p>
-                    <p className="text-xs text-muted-foreground">{review.time}</p>
+                    <p className="font-bold text-lg text-foreground">{review.name}</p>
+                    <p className="text-sm text-muted-foreground">{review.time}</p>
                   </div>
                 </div>
-                <div className="w-8 h-8 bg-blue-50 rounded-full flex items-center justify-center">
-                  <Facebook className="w-4 h-4 text-blue-600" />
+                <div className="w-10 h-10 bg-blue-500/10 rounded-xl flex items-center justify-center group-hover:bg-blue-500/20 transition-colors">
+                  <Facebook className="w-5 h-5 text-blue-500" />
                 </div>
               </div>
 
               {/* Recommended Badge */}
-              <div className="flex items-center gap-2 mb-4">
-                <div className="flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-full">
+              <div className="flex items-center gap-2 mb-5">
+                <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full border border-primary/20">
                   <ThumbsUp className="w-4 h-4 text-primary" />
-                  <span className="text-sm font-semibold text-primary">Recommended</span>
+                  <span className="text-sm font-bold text-primary">Recommended</span>
                 </div>
               </div>
 
               {/* Review Text */}
-              <p className="text-muted-foreground leading-relaxed">{review.review}</p>
+              <p className="text-muted-foreground leading-relaxed text-base">{review.review}</p>
             </div>
           ))}
         </div>

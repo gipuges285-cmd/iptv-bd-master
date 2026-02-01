@@ -42,35 +42,46 @@ const faqs = [
 
 const FAQSection = () => {
   return (
-    <section className="py-20 bg-gradient-to-b from-muted/30 via-background to-muted/20">
-      <div className="section-container">
+    <section className="py-24 relative overflow-hidden">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5" />
+      <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-10 w-72 h-72 bg-secondary/10 rounded-full blur-3xl" />
+      
+      <div className="section-container relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <span className="inline-block text-sm font-semibold text-primary mb-3 tracking-wide uppercase">FAQs</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Find Answers to your Questions
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-4">
+            <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+            <span className="text-sm font-bold text-primary uppercase tracking-wider">FAQs</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-foreground mb-5">
+            Find Answers to your <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Questions</span>
           </h2>
-          <p className="text-muted-foreground text-lg">Welcome to FAQ section</p>
+          <p className="text-muted-foreground text-lg max-w-xl mx-auto">Welcome to FAQ section</p>
         </div>
 
         {/* Two Column Layout */}
-        <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Left Column */}
           <div>
-            <h3 className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-6">
-              Most Frequently Searched Term
-            </h3>
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-1.5 h-8 bg-gradient-to-b from-primary to-secondary rounded-full" />
+              <h3 className="text-2xl font-bold text-foreground">
+                Most Frequently Searched Term
+              </h3>
+            </div>
             <Accordion type="single" collapsible className="space-y-4">
               {faqs.slice(0, 4).map((faq, index) => (
                 <AccordionItem 
                   key={index} 
                   value={`item-${index}`} 
-                  className="bg-card rounded-2xl border border-border/50 px-6 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300"
+                  className="bg-card/80 backdrop-blur-sm rounded-2xl border-2 border-transparent px-6 shadow-lg hover:shadow-xl hover:border-primary/30 hover:bg-card transition-all duration-300 group"
                 >
-                  <AccordionTrigger className="text-left font-medium hover:no-underline py-5 text-foreground [&[data-state=open]]:text-primary">
+                  <AccordionTrigger className="text-left font-semibold hover:no-underline py-6 text-foreground [&[data-state=open]]:text-primary group-hover:text-primary transition-colors">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
+                  <AccordionContent className="text-muted-foreground pb-6 leading-relaxed text-base">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
@@ -80,20 +91,23 @@ const FAQSection = () => {
 
           {/* Right Column */}
           <div>
-            <h3 className="text-xl font-bold bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent mb-6">
-              Why IPTV BD Best For You
-            </h3>
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-1.5 h-8 bg-gradient-to-b from-secondary to-primary rounded-full" />
+              <h3 className="text-2xl font-bold text-foreground">
+                Why IPTV BD Best For You
+              </h3>
+            </div>
             <Accordion type="single" collapsible className="space-y-4">
               {faqs.slice(4).map((faq, index) => (
                 <AccordionItem 
                   key={index + 4} 
                   value={`item-${index + 4}`} 
-                  className="bg-card rounded-2xl border border-border/50 px-6 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300"
+                  className="bg-card/80 backdrop-blur-sm rounded-2xl border-2 border-transparent px-6 shadow-lg hover:shadow-xl hover:border-secondary/30 hover:bg-card transition-all duration-300 group"
                 >
-                  <AccordionTrigger className="text-left font-medium hover:no-underline py-5 text-foreground [&[data-state=open]]:text-primary">
+                  <AccordionTrigger className="text-left font-semibold hover:no-underline py-6 text-foreground [&[data-state=open]]:text-secondary group-hover:text-secondary transition-colors">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
+                  <AccordionContent className="text-muted-foreground pb-6 leading-relaxed text-base">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
