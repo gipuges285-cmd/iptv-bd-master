@@ -42,24 +42,35 @@ const faqs = [
 
 const FAQSection = () => {
   return (
-    <section className="py-16 bg-section-light">
+    <section className="py-20 bg-gradient-to-b from-muted/30 via-background to-muted/20">
       <div className="section-container">
-        <div className="text-center mb-12">
-          <span className="text-sm font-medium text-primary mb-2 block">FAQs</span>
-          <h2 className="section-title mb-4">Find Answers to your Questions</h2>
-          <p className="text-muted-foreground">Welcome to FAQ section</p>
+        {/* Header */}
+        <div className="text-center mb-16">
+          <span className="inline-block text-sm font-semibold text-primary mb-3 tracking-wide uppercase">FAQs</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            Find Answers to your Questions
+          </h2>
+          <p className="text-muted-foreground text-lg">Welcome to FAQ section</p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        {/* Two Column Layout */}
+        <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+          {/* Left Column */}
           <div>
-            <h3 className="text-lg font-semibold text-primary mb-4">Most Frequently Searched Term</h3>
-            <Accordion type="single" collapsible className="space-y-3">
+            <h3 className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-6">
+              Most Frequently Searched Term
+            </h3>
+            <Accordion type="single" collapsible className="space-y-4">
               {faqs.slice(0, 4).map((faq, index) => (
-                <AccordionItem key={index} value={`item-${index}`} className="bg-card rounded-xl border border-border px-4">
-                  <AccordionTrigger className="text-left font-medium hover:no-underline">
+                <AccordionItem 
+                  key={index} 
+                  value={`item-${index}`} 
+                  className="bg-card rounded-2xl border border-border/50 px-6 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300"
+                >
+                  <AccordionTrigger className="text-left font-medium hover:no-underline py-5 text-foreground [&[data-state=open]]:text-primary">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground">
+                  <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
@@ -67,15 +78,22 @@ const FAQSection = () => {
             </Accordion>
           </div>
 
+          {/* Right Column */}
           <div>
-            <h3 className="text-lg font-semibold text-primary mb-4">Why IPTV BD Best For You</h3>
-            <Accordion type="single" collapsible className="space-y-3">
+            <h3 className="text-xl font-bold bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent mb-6">
+              Why IPTV BD Best For You
+            </h3>
+            <Accordion type="single" collapsible className="space-y-4">
               {faqs.slice(4).map((faq, index) => (
-                <AccordionItem key={index + 4} value={`item-${index + 4}`} className="bg-card rounded-xl border border-border px-4">
-                  <AccordionTrigger className="text-left font-medium hover:no-underline">
+                <AccordionItem 
+                  key={index + 4} 
+                  value={`item-${index + 4}`} 
+                  className="bg-card rounded-2xl border border-border/50 px-6 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300"
+                >
+                  <AccordionTrigger className="text-left font-medium hover:no-underline py-5 text-foreground [&[data-state=open]]:text-primary">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground">
+                  <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
