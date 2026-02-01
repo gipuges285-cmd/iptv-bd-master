@@ -92,41 +92,64 @@ const HeroSection = () => {
           rel="noopener noreferrer"
           className="block mt-8 group"
         >
-          <div className="rounded-3xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 p-8 md:p-10 relative overflow-hidden border border-slate-700/50 hover:border-secondary/30 transition-all duration-500 shadow-2xl hover:shadow-secondary/10">
-            {/* Animated background elements */}
-            <div className="absolute top-0 left-0 w-full h-full">
-              <div className="absolute top-0 right-1/4 w-64 h-64 bg-secondary/10 rounded-full blur-3xl group-hover:bg-secondary/20 transition-colors duration-500" />
-              <div className="absolute bottom-0 left-1/4 w-48 h-48 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-colors duration-500" />
-            </div>
+          <div className="relative rounded-3xl overflow-hidden">
+            {/* Gradient background */}
+            <div className="absolute inset-0 bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600" />
             
-            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
-              <div className="text-center md:text-left">
-                <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-3 group-hover:text-secondary/90 transition-colors">
-                  Google AI Pro/ Ultra
+            {/* Mesh pattern overlay */}
+            <div className="absolute inset-0 opacity-30" style={{
+              backgroundImage: `radial-gradient(circle at 25% 25%, rgba(255,255,255,0.2) 0%, transparent 50%),
+                               radial-gradient(circle at 75% 75%, rgba(255,255,255,0.1) 0%, transparent 50%)`
+            }} />
+            
+            {/* Content */}
+            <div className="relative z-10 p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
+              <div className="text-center md:text-left flex-1">
+                {/* Badge */}
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/20 backdrop-blur-sm rounded-full mb-4 border border-white/30">
+                  <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                  <span className="text-white/90 text-sm font-medium">Available Now</span>
+                </div>
+                
+                <h2 className="text-3xl md:text-5xl font-black text-white mb-2 tracking-tight">
+                  Google AI Pro<span className="text-secondary">/ Ultra</span>
                 </h2>
-                <p className="text-secondary font-bold text-lg mb-5 tracking-wide">Subscription</p>
-                <div className="flex flex-wrap items-center justify-center md:justify-start gap-5 text-sm">
-                  {["Gemini app", "Play", "Latest AI in Google apps", "100 GB Storage"].map((feature, idx) => (
-                    <span key={idx} className="flex items-center gap-2 text-slate-300 group-hover:text-white transition-colors">
-                      <span className="w-2.5 h-2.5 bg-secondary rounded-full animate-pulse shadow-lg shadow-secondary/50" />
-                      {feature}
-                    </span>
+                <p className="text-white/80 text-lg mb-6">Premium Subscription Package</p>
+                
+                {/* Features grid */}
+                <div className="grid grid-cols-2 md:flex md:flex-wrap gap-3 md:gap-4">
+                  {[
+                    { icon: "✨", text: "Gemini App" },
+                    { icon: "🎮", text: "Play" },
+                    { icon: "🤖", text: "Latest AI" },
+                    { icon: "☁️", text: "100 GB Storage" }
+                  ].map((feature, idx) => (
+                    <div 
+                      key={idx} 
+                      className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-colors"
+                    >
+                      <span className="text-lg">{feature.icon}</span>
+                      <span className="text-white text-sm font-medium">{feature.text}</span>
+                    </div>
                   ))}
                 </div>
               </div>
               
-              {/* Icon */}
-              <div className="relative">
-                <div className="w-24 h-24 md:w-28 md:h-28 bg-gradient-to-br from-slate-700 to-slate-800 rounded-full flex items-center justify-center border-2 border-slate-600/50 shadow-2xl group-hover:scale-110 group-hover:border-secondary/30 transition-all duration-500">
-                  <span className="text-5xl md:text-6xl">🐱</span>
+              {/* Right side - Large emoji with animated ring */}
+              <div className="relative flex-shrink-0">
+                {/* Animated rings */}
+                <div className="absolute inset-0 w-32 h-32 md:w-40 md:h-40 border-2 border-white/20 rounded-full animate-ping" style={{ animationDuration: '3s' }} />
+                <div className="absolute inset-2 w-28 h-28 md:w-36 md:h-36 border border-white/30 rounded-full animate-pulse" />
+                
+                {/* Main icon */}
+                <div className="relative w-32 h-32 md:w-40 md:h-40 bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 shadow-2xl group-hover:scale-110 transition-transform duration-500">
+                  <span className="text-6xl md:text-7xl drop-shadow-lg">🦊</span>
                 </div>
-                {/* Glow effect */}
-                <div className="absolute inset-0 w-full h-full bg-secondary/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
             </div>
             
-            {/* Shine effect on hover */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+            {/* Bottom gradient fade */}
+            <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-secondary via-white/50 to-secondary" />
           </div>
         </a>
       </div>
