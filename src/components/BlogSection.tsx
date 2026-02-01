@@ -27,42 +27,53 @@ const blogs = [
 
 const BlogSection = () => {
   return (
-    <section className="py-16 bg-section-light" id="blogs">
+    <section className="py-20 bg-gradient-to-b from-muted/30 via-background to-muted/20" id="blogs">
       <div className="section-container">
-        <div className="text-center mb-12">
-          <span className="text-sm font-medium text-primary mb-2 block">Read From Our blogs</span>
-          <h2 className="section-title mb-4">Read From Our blogs</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <span className="inline-block text-sm font-semibold text-primary mb-3 tracking-wide">
+            Read From Our blogs
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            Read From Our blogs
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
             Here are some exclusive discussion written by our expert from customer point of view. 
             Read the things and grab your best packages from us
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Blog Cards */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogs.map((blog) => (
-            <article key={blog.id} className="bg-card rounded-xl overflow-hidden shadow-sm border border-border hover:shadow-md transition-shadow group cursor-pointer">
+            <article 
+              key={blog.id} 
+              className="bg-card rounded-2xl overflow-hidden shadow-md border border-border/50 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer"
+            >
               <div className="aspect-video overflow-hidden">
                 <img
                   src={blog.image}
                   alt={blog.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   onError={(e) => {
                     e.currentTarget.src = '/placeholder.svg';
                   }}
                 />
               </div>
               <div className="p-6">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
-                  <Calendar className="w-4 h-4" />
-                  <span>{blog.date}</span>
+                <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
+                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Calendar className="w-4 h-4 text-primary" />
+                  </div>
+                  <span className="font-medium">{blog.date}</span>
                 </div>
-                <h3 className="font-semibold text-lg text-foreground mb-3 line-clamp-2 group-hover:text-primary transition-colors">
+                <h3 className="font-bold text-lg text-foreground mb-3 line-clamp-2 group-hover:text-primary transition-colors">
                   {blog.title}
                 </h3>
-                <p className="text-muted-foreground text-sm line-clamp-2 mb-4">
+                <p className="text-muted-foreground text-sm line-clamp-2 mb-5 leading-relaxed">
                   {blog.excerpt}
                 </p>
-                <span className="text-primary font-medium text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                <span className="text-primary font-semibold text-sm inline-flex items-center gap-2 group-hover:gap-3 transition-all">
                   Continue Reading
                   <ArrowRight className="w-4 h-4" />
                 </span>
@@ -71,8 +82,12 @@ const BlogSection = () => {
           ))}
         </div>
 
-        <div className="text-center mt-8">
-          <Button variant="outline" className="rounded-full border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+        {/* Load More Button */}
+        <div className="text-center mt-12">
+          <Button 
+            variant="outline" 
+            className="rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-3 font-semibold transition-all duration-300 hover:shadow-lg"
+          >
             Load More Posts
           </Button>
         </div>
