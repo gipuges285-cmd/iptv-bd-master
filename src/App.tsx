@@ -42,7 +42,7 @@ const App = () => {
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter basename="/iptv-bd-master">
+        <BrowserRouter basename={import.meta.env.PROD && window.location.hostname.includes('github.io') ? '/iptv-bd-master' : '/'}>
           <Routes>
             <Route path="/" element={<Index />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
