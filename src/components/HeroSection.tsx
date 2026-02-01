@@ -136,12 +136,8 @@ const HeroSection = () => {
                 </div>
               </div>
               
-              {/* Right side - Icon with shop badge */}
+              {/* Right side - Icon */}
               <div className="relative flex-shrink-0">
-                {/* Animated rings */}
-                <div className="absolute inset-0 w-32 h-32 md:w-40 md:h-40 border-2 border-white/20 rounded-full animate-ping" style={{ animationDuration: '3s' }} />
-                <div className="absolute inset-2 w-28 h-28 md:w-36 md:h-36 border border-white/30 rounded-full animate-pulse" />
-                
                 {/* Main icon */}
                 <div className="relative w-32 h-32 md:w-40 md:h-40 bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 shadow-2xl group-hover:scale-110 transition-transform duration-500 overflow-hidden">
                   <img src={foxIcon} alt="Fox Icon" className="w-24 h-24 md:w-32 md:h-32 object-contain drop-shadow-lg" />
