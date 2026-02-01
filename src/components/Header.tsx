@@ -50,18 +50,22 @@ const Header = () => {
           </a>
 
           {/* Search Bar */}
+          {/* Search Bar */}
           <div className="flex-1 max-w-2xl hidden md:block">
             <form role="search" className="relative group">
               <label htmlFor="search-input" className="sr-only">Search products</label>
-              <div className="absolute inset-0 bg-gradient-to-r from-violet-500 to-teal-400 rounded-full opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-300" />
-              <div className="relative bg-white rounded-full p-[1px] shadow-sm group-hover:shadow-md transition-shadow duration-300">
-                <div className="relative">
+              {/* Outer glow layer */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-violet-600 via-purple-500 to-teal-400 rounded-full opacity-0 group-hover:opacity-75 blur-lg transition-all duration-500 group-hover:duration-200 animate-pulse" />
+              {/* Inner glow layer */}
+              <div className="absolute inset-0 bg-gradient-to-r from-violet-500 to-teal-400 rounded-full opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-300" />
+              <div className="relative bg-white rounded-full p-[2px] shadow-lg group-hover:shadow-[0_0_30px_rgba(139,92,246,0.4),0_0_60px_rgba(45,212,191,0.2)] transition-all duration-300">
+                <div className="relative bg-white rounded-full">
                   <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-hover:text-violet-500 transition-colors duration-200" />
                   <input
                     id="search-input"
                     type="search"
                     placeholder="Search Tools"
-                    className="pl-14 pr-6 h-12 w-full rounded-full border-0 bg-gray-50/80 text-gray-700 placeholder:text-gray-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-violet-500/20 transition-all duration-200"
+                    className="pl-14 pr-6 h-12 w-full rounded-full border-0 bg-gray-50/50 text-gray-700 placeholder:text-gray-400 focus:outline-none focus:bg-white focus:ring-4 focus:ring-violet-500/30 focus:shadow-[0_0_25px_rgba(139,92,246,0.35)] transition-all duration-300"
                   />
                 </div>
               </div>
