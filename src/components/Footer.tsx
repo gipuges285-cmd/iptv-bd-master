@@ -3,67 +3,82 @@ import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin, ArrowRight } from "
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   
+  const quickLinks = [
+    { name: "Shop", href: "#shop" },
+    { name: "About Us", href: "#about" },
+    { name: "Reviews", href: "#reviews" },
+    { name: "Blogs", href: "#blogs" },
+    { name: "Contact Us", href: "#contact" },
+    { name: "FAQs", href: "#faqs" },
+  ];
+  
+  const categories = [
+    "AI Tools",
+    "Video Streaming",
+    "Audio Streaming",
+    "Educational Tools",
+    "Microsoft Products",
+    "Google Products",
+    "VPN Services",
+  ];
+
   return (
-    <footer className="bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden" role="contentinfo">
-      {/* Background decorative elements */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
-      
+    <footer className="bg-[#0f172a] text-white">
       {/* Main Footer */}
-      <div className="section-container py-20 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="section-container py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Brand Column */}
           <div>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg shadow-primary/20">
-                <span className="text-white font-bold text-xl">IP</span>
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-11 h-11 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                <span className="text-white font-bold text-lg">IP</span>
               </div>
               <div>
-                <span className="text-2xl font-bold">
+                <span className="text-xl font-bold">
                   <span className="text-primary">IPTV</span>
                   <span className="text-secondary">BD</span>
                 </span>
-                <p className="text-xs text-slate-400 -mt-0.5">PAIDI IPTV BD</p>
+                <p className="text-[11px] text-slate-500 -mt-0.5">PAIDI IPTV BD</p>
               </div>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed mb-6">
               Bangladesh's #1 Digital Subscription Platform. Get access to premium tools, 
               streaming services, and software at the best prices.
             </p>
-            <div className="flex gap-3">
+            <div className="flex gap-2">
               <a 
                 href="#" 
-                className="w-11 h-11 rounded-full bg-white/5 border border-white/10 hover:bg-primary hover:border-primary flex items-center justify-center transition-all duration-300 hover:scale-110"
+                className="w-10 h-10 rounded-full bg-slate-800 hover:bg-primary flex items-center justify-center transition-colors duration-300"
               >
-                <Facebook className="w-5 h-5" />
+                <Facebook className="w-4 h-4" />
               </a>
               <a 
                 href="#" 
-                className="w-11 h-11 rounded-full bg-white/5 border border-white/10 hover:bg-gradient-to-br hover:from-purple-500 hover:to-pink-500 hover:border-transparent flex items-center justify-center transition-all duration-300 hover:scale-110"
+                className="w-10 h-10 rounded-full bg-slate-800 hover:bg-gradient-to-br hover:from-purple-500 hover:to-pink-500 flex items-center justify-center transition-colors duration-300"
               >
-                <Instagram className="w-5 h-5" />
+                <Instagram className="w-4 h-4" />
               </a>
               <a 
                 href="#" 
-                className="w-11 h-11 rounded-full bg-white/5 border border-white/10 hover:bg-blue-600 hover:border-blue-600 flex items-center justify-center transition-all duration-300 hover:scale-110"
+                className="w-10 h-10 rounded-full bg-slate-800 hover:bg-blue-600 flex items-center justify-center transition-colors duration-300"
               >
-                <Linkedin className="w-5 h-5" />
+                <Linkedin className="w-4 h-4" />
               </a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-bold text-lg mb-6 text-white">Quick Links</h4>
-            <ul className="space-y-4">
-              {["Shop", "About Us", "Reviews", "Blogs", "Contact Us", "FAQs"].map((link) => (
-                <li key={link}>
+            <h4 className="font-bold text-base mb-6 text-white">Quick Links</h4>
+            <ul className="space-y-3">
+              {quickLinks.map((link) => (
+                <li key={link.name}>
                   <a 
-                    href="#" 
-                    className="text-slate-400 hover:text-primary transition-all duration-300 text-sm flex items-center gap-2 group"
+                    href={link.href} 
+                    className="text-slate-400 hover:text-primary transition-colors duration-300 text-sm flex items-center gap-2 group"
                   >
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    {link}
+                    <ArrowRight className="w-3.5 h-3.5 text-primary" />
+                    {link.name}
                   </a>
                 </li>
               ))}
@@ -72,15 +87,15 @@ const Footer = () => {
 
           {/* Categories */}
           <div>
-            <h4 className="font-bold text-lg mb-6 text-white">Categories</h4>
-            <ul className="space-y-4">
-              {["AI Tools", "Video Streaming", "Audio Streaming", "Educational Tools", "Microsoft Products", "Google Products", "VPN Services"].map((category) => (
+            <h4 className="font-bold text-base mb-6 text-white">Categories</h4>
+            <ul className="space-y-3">
+              {categories.map((category) => (
                 <li key={category}>
                   <a 
                     href="#" 
-                    className="text-slate-400 hover:text-primary transition-all duration-300 text-sm flex items-center gap-2 group"
+                    className="text-slate-400 hover:text-primary transition-colors duration-300 text-sm flex items-center gap-2 group"
                   >
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-3.5 h-3.5 text-secondary" />
                     {category}
                   </a>
                 </li>
@@ -90,23 +105,23 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h4 className="font-bold text-lg mb-6 text-white">Contact Us</h4>
-            <ul className="space-y-5">
-              <li className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                  <MapPin className="w-5 h-5 text-primary" />
+            <h4 className="font-bold text-base mb-6 text-white">Contact Us</h4>
+            <ul className="space-y-4">
+              <li className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center shrink-0">
+                  <MapPin className="w-4 h-4 text-secondary" />
                 </div>
-                <span className="text-slate-400 text-sm pt-2">Dhaka, Bangladesh</span>
+                <span className="text-slate-400 text-sm">Dhaka, Bangladesh</span>
               </li>
               <li className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
-                  <Phone className="w-5 h-5 text-secondary" />
+                <div className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center shrink-0">
+                  <Phone className="w-4 h-4 text-secondary" />
                 </div>
                 <span className="text-slate-400 text-sm">+880 1767-046095</span>
               </li>
               <li className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                  <Mail className="w-5 h-5 text-primary" />
+                <div className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center shrink-0">
+                  <Mail className="w-4 h-4 text-secondary" />
                 </div>
                 <span className="text-slate-400 text-sm">info@iptvbd.com</span>
               </li>
@@ -116,14 +131,14 @@ const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/10 relative z-10">
-        <div className="section-container py-6">
+      <div className="border-t border-slate-800">
+        <div className="section-container py-5">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
             <p className="text-slate-500">© {currentYear} IPTV BD - PAIDI IPTV BD. All Rights Reserved.</p>
-            <div className="flex items-center gap-8">
-              <a href="#" className="text-slate-400 hover:text-primary transition-colors">Privacy Policy</a>
-              <a href="#" className="text-slate-400 hover:text-primary transition-colors">Terms & Conditions</a>
-              <a href="#" className="text-slate-400 hover:text-primary transition-colors">Refund Policy</a>
+            <div className="flex items-center gap-6">
+              <a href="#" className="text-slate-500 hover:text-primary transition-colors">Privacy Policy</a>
+              <a href="#" className="text-slate-500 hover:text-primary transition-colors">Terms & Conditions</a>
+              <a href="#" className="text-slate-500 hover:text-primary transition-colors">Refund Policy</a>
             </div>
           </div>
         </div>
