@@ -21,7 +21,13 @@ const UtilitiesSection = () => {
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
           {utilityProducts.map((product) => (
-            <div key={product.id} className="product-card group cursor-pointer">
+            <a 
+              key={product.id} 
+              href="https://wa.me/8801767046095" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="product-card group cursor-pointer block"
+            >
               <div className="relative aspect-video overflow-hidden bg-muted rounded-t-xl">
                 {product.outOfStock && (
                   <div className="absolute top-2 left-2 px-2 py-1 text-xs font-semibold text-white bg-red-500 rounded z-10">
@@ -43,7 +49,7 @@ const UtilitiesSection = () => {
                 </h3>
                 <p className="price-text">{product.price}</p>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>
