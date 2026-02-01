@@ -6,8 +6,15 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ image, title, price, outOfStock = false }: ProductCardProps) => {
+  const whatsappLink = "https://wa.me/8801767046095";
+  
   return (
-    <div className="product-card group cursor-pointer">
+    <a 
+      href={whatsappLink} 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className="product-card group cursor-pointer block"
+    >
       <div className="relative aspect-square overflow-hidden bg-muted">
         {outOfStock && (
           <div className="badge-out-of-stock z-10">OUT OF STOCK</div>
@@ -27,7 +34,7 @@ const ProductCard = ({ image, title, price, outOfStock = false }: ProductCardPro
         </h3>
         <p className="price-text text-lg">{price}</p>
       </div>
-    </div>
+    </a>
   );
 };
 
