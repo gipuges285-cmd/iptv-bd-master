@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { CheckCircle, Shield, ArrowRight } from "lucide-react";
+import { CheckCircle, Shield, ArrowRight, ShoppingBag } from "lucide-react";
 
 const HeroSection = () => {
   return (
@@ -135,7 +135,7 @@ const HeroSection = () => {
                 </div>
               </div>
               
-              {/* Right side - Large emoji with animated ring */}
+              {/* Right side - Icon with shop badge */}
               <div className="relative flex-shrink-0">
                 {/* Animated rings */}
                 <div className="absolute inset-0 w-32 h-32 md:w-40 md:h-40 border-2 border-white/20 rounded-full animate-ping" style={{ animationDuration: '3s' }} />
@@ -144,6 +144,11 @@ const HeroSection = () => {
                 {/* Main icon */}
                 <div className="relative w-32 h-32 md:w-40 md:h-40 bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 shadow-2xl group-hover:scale-110 transition-transform duration-500">
                   <span className="text-6xl md:text-7xl drop-shadow-lg">🦊</span>
+                </div>
+                
+                {/* Shop icon badge */}
+                <div className="absolute -bottom-2 -right-2 w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-secondary to-teal-400 rounded-full flex items-center justify-center shadow-lg border-2 border-white/50 group-hover:scale-110 transition-transform">
+                  <ShoppingBag className="w-6 h-6 md:w-7 md:h-7 text-white" />
                 </div>
               </div>
             </div>
