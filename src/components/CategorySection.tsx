@@ -19,8 +19,11 @@ const CategorySection = () => {
         
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-4">
           {categories.map((category) => (
-            <div
+            <a
               key={category.name}
+              href="https://wa.me/8801767046095"
+              target="_blank"
+              rel="noopener noreferrer"
               className="category-card group"
             >
               <div className={`w-14 h-14 rounded-xl ${category.color} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform`}>
@@ -29,7 +32,7 @@ const CategorySection = () => {
               <span className="text-sm font-medium text-foreground text-center line-clamp-2">
                 {category.name}
               </span>
-            </div>
+            </a>
           ))}
         </div>
       </div>

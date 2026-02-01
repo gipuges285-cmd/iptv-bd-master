@@ -34,7 +34,13 @@ const StreamingSection = () => {
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
           {streamingProducts.map((product) => (
-            <div key={product.id} className="bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden hover:bg-white/10 transition-colors cursor-pointer group">
+            <a 
+              key={product.id} 
+              href="https://wa.me/8801767046095" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden hover:bg-white/10 transition-colors cursor-pointer group block"
+            >
               <div className="relative aspect-video overflow-hidden">
                 {product.outOfStock && (
                   <div className="absolute top-2 left-2 px-2 py-1 text-xs font-semibold text-white bg-red-500 rounded z-10">
@@ -54,7 +60,7 @@ const StreamingSection = () => {
                 <h3 className="font-medium text-white line-clamp-2 mb-2">{product.title}</h3>
                 <p className="text-secondary font-bold">{product.price}</p>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>

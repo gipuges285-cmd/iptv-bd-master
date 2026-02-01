@@ -14,10 +14,12 @@ const CareerBanner = () => {
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
                 Elevate Your Future. One Step Ahead, Always
               </h3>
-              <Button variant="secondary" className="group rounded-full bg-white text-foreground hover:bg-white/90">
-                Get it Now
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              <a href="https://wa.me/8801767046095" target="_blank" rel="noopener noreferrer">
+                <Button variant="secondary" className="group rounded-full bg-white text-foreground hover:bg-white/90">
+                  Get it Now
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
             </div>
             
             <div className="flex items-center gap-4">
