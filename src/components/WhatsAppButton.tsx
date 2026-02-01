@@ -33,22 +33,34 @@ const WhatsAppButton = () => {
       {/* Chat Widget Popup */}
       {isOpen && (
         <div className="absolute bottom-20 right-0 w-[320px] mb-2 animate-fade-in">
-          <div className="bg-white dark:bg-card rounded-2xl shadow-2xl overflow-hidden border border-border">
-            {/* Header */}
-            <div className="bg-gradient-to-r from-emerald-400 to-teal-500 p-5 relative">
-              <button 
-                onClick={() => setIsOpen(false)}
-                className="absolute top-3 right-3 w-8 h-8 bg-slate-700/50 hover:bg-slate-700/70 rounded-full flex items-center justify-center transition-colors"
-              >
-                <X className="w-4 h-4 text-white" />
-              </button>
-              <p className="text-white text-sm font-medium pr-10 leading-relaxed">
-                Click one of the agents below to chat on WhatsApp
-              </p>
+          <div className="bg-white dark:bg-card rounded-2xl shadow-2xl overflow-hidden border border-gray-200 dark:border-border">
+            {/* Header with curved bottom */}
+            <div className="relative">
+              <div className="bg-gradient-to-r from-emerald-400 via-teal-500 to-emerald-500 pt-5 pb-10 px-5 relative">
+                {/* Close button */}
+                <button 
+                  onClick={() => setIsOpen(false)}
+                  className="absolute top-4 right-4 w-8 h-8 bg-slate-700/60 hover:bg-slate-700/80 rounded-full flex items-center justify-center transition-colors"
+                >
+                  <X className="w-4 h-4 text-white" />
+                </button>
+                
+                {/* Header text */}
+                <p className="text-white text-sm font-medium pr-10 leading-relaxed">
+                  Click one of the agents below to chat on WhatsApp
+                </p>
+              </div>
+              
+              {/* Curved bottom shape */}
+              <div className="absolute -bottom-1 left-0 right-0">
+                <svg viewBox="0 0 320 20" className="w-full h-5 fill-white dark:fill-card">
+                  <path d="M0,20 L0,0 Q160,40 320,0 L320,20 Z" />
+                </svg>
+              </div>
             </div>
             
             {/* Agents List */}
-            <div className="p-2">
+            <div className="p-2 pt-0">
               {agents.map((agent, idx) => (
                 <a
                   key={idx}
@@ -79,7 +91,7 @@ const WhatsAppButton = () => {
                     <span className={`w-2 h-2 rounded-full ${
                       agent.status === 'online' ? 'bg-green-500' : 'bg-gray-400'
                     }`} />
-                    <span className={`text-xs font-medium capitalize ${
+                    <span className={`text-xs font-medium ${
                       agent.status === 'online' ? 'text-green-600' : 'text-gray-500'
                     }`}>
                       {agent.status === 'online' ? 'Online' : 'Offline'}
