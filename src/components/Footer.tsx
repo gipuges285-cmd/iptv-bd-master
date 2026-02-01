@@ -87,17 +87,6 @@ const Footer = () => {
               </li>
             </ul>
 
-            <h4 className="font-semibold text-lg mb-3">Newsletter</h4>
-            <div className="flex gap-2">
-              <Input 
-                type="email" 
-                placeholder="Your email" 
-                className="bg-white/10 border-white/20 text-white placeholder:text-gray-500 rounded-full"
-              />
-              <Button className="bg-primary hover:bg-primary/90 rounded-full px-4">
-                <ArrowRight className="w-5 h-5" />
-              </Button>
-            </div>
           </div>
         </div>
       </div>
