@@ -11,6 +11,7 @@ import ReviewsSection from "@/components/ReviewsSection";
 import BlogSection from "@/components/BlogSection";
 import Footer from "@/components/Footer";
 import MobileBottomNav from "@/components/MobileBottomNav";
+import SEOHead from "@/components/SEOHead";
 
 // Best Selling Products
 const bestSellingProducts = [
@@ -77,10 +78,12 @@ const careerProducts = [
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background pb-16 md:pb-0">
-      <TopBar />
-      <Header />
-      <main>
+    <>
+      <SEOHead />
+      <div className="min-h-screen bg-background pb-16 md:pb-0">
+        <TopBar />
+        <Header />
+        <main role="main" aria-label="Main content">
         <HeroSection />
         
         <ProductSection 
@@ -133,6 +136,7 @@ const Index = () => {
       <Footer />
       <MobileBottomNav />
     </div>
+    </>
   );
 };
 
