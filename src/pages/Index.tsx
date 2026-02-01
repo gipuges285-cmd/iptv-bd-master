@@ -12,6 +12,7 @@ import BlogSection from "@/components/BlogSection";
 import Footer from "@/components/Footer";
 import MobileBottomNav from "@/components/MobileBottomNav";
 import SEOHead from "@/components/SEOHead";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 // Best Selling Products
 const bestSellingProducts = [
@@ -135,6 +136,7 @@ const Index = () => {
       </main>
       <Footer />
       <MobileBottomNav />
+      <WhatsAppButton />
     </div>
     </>
   );

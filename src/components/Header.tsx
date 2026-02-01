@@ -32,13 +32,13 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-background sticky top-0 z-50 border-b border-border shadow-sm">
+    <header className="bg-background sticky top-0 z-50 border-b border-border shadow-sm" role="banner">
       <div className="section-container py-4">
         <div className="flex items-center justify-between gap-4">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2 shrink-0">
+          <a href="/" className="flex items-center gap-2 shrink-0" aria-label="IPTVBD - Home">
             <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-              <span className="text-white font-bold text-lg">IP</span>
+              <span className="text-white font-bold text-lg" aria-hidden="true">IP</span>
             </div>
             <div className="hidden sm:block">
               <span className="text-xl font-bold">
@@ -51,14 +51,16 @@ const Header = () => {
 
           {/* Search Bar */}
           <div className="flex-1 max-w-xl hidden md:block">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+            <form role="search" className="relative">
+              <label htmlFor="search-input" className="sr-only">Search products</label>
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" aria-hidden="true" />
               <Input
-                type="text"
+                id="search-input"
+                type="search"
                 placeholder="Search Tools"
                 className="pl-10 pr-4 py-2 w-full rounded-full border-border bg-muted/50 focus:bg-background"
               />
-            </div>
+            </form>
           </div>
 
           {/* Mobile Menu Button */}
@@ -74,7 +76,7 @@ const Header = () => {
         </div>
 
         {/* Navigation */}
-        <nav className="hidden md:flex items-center gap-1 mt-4">
+        <nav className="hidden md:flex items-center gap-1 mt-4" role="navigation" aria-label="Main navigation">
           {/* All Categories Dropdown */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>

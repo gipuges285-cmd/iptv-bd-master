@@ -1,8 +1,10 @@
 import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+  
   return (
-    <footer className="bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
+    <footer className="bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden" role="contentinfo">
       {/* Background decorative elements */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
@@ -117,7 +119,7 @@ const Footer = () => {
       <div className="border-t border-white/10 relative z-10">
         <div className="section-container py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
-            <p className="text-slate-500">© 2024 IPTV BD - PAIDI IPTV BD. All Rights Reserved.</p>
+            <p className="text-slate-500">© {currentYear} IPTV BD - PAIDI IPTV BD. All Rights Reserved.</p>
             <div className="flex items-center gap-8">
               <a href="#" className="text-slate-400 hover:text-primary transition-colors">Privacy Policy</a>
               <a href="#" className="text-slate-400 hover:text-primary transition-colors">Terms & Conditions</a>
