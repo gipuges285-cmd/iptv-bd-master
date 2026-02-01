@@ -51,15 +51,20 @@ const Header = () => {
 
           {/* Search Bar */}
           <div className="flex-1 max-w-2xl hidden md:block">
-            <form role="search" className="relative">
+            <form role="search" className="relative group">
               <label htmlFor="search-input" className="sr-only">Search products</label>
-              <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-              <input
-                id="search-input"
-                type="search"
-                placeholder="Search Tools"
-                className="pl-14 pr-5 h-12 w-full rounded-full border border-gray-200 bg-gray-50 text-gray-700 placeholder:text-gray-400 focus:outline-none focus:border-violet-400 focus:bg-white focus:ring-2 focus:ring-violet-100 transition-all duration-200"
-              />
+              <div className="absolute inset-0 bg-gradient-to-r from-violet-500 to-teal-400 rounded-full opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-300" />
+              <div className="relative bg-white rounded-full p-[1px] shadow-sm group-hover:shadow-md transition-shadow duration-300">
+                <div className="relative">
+                  <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-hover:text-violet-500 transition-colors duration-200" />
+                  <input
+                    id="search-input"
+                    type="search"
+                    placeholder="Search Tools"
+                    className="pl-14 pr-6 h-12 w-full rounded-full border-0 bg-gray-50/80 text-gray-700 placeholder:text-gray-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-violet-500/20 transition-all duration-200"
+                  />
+                </div>
+              </div>
             </form>
           </div>
 
