@@ -1,4 +1,4 @@
-import { Search, ShoppingCart, Menu, ChevronDown, LogIn } from "lucide-react";
+import { Search, Menu, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -61,14 +61,8 @@ const Header = () => {
             </div>
           </div>
 
-          {/* Cart & Sign In */}
+          {/* Mobile Menu Button */}
           <div className="flex items-center gap-3">
-            
-            <Button variant="default" className="hidden sm:flex items-center gap-2 bg-primary hover:bg-primary/90 rounded-full">
-              <LogIn className="w-4 h-4" />
-              Sign In
-            </Button>
-
             {/* Mobile Menu Button */}
             <button 
               className="md:hidden p-2 hover:bg-muted rounded-lg"
@@ -132,10 +126,6 @@ const Header = () => {
                   {link.name}
                 </a>
               ))}
-              <Button variant="default" className="mt-2 flex items-center gap-2 bg-primary rounded-lg">
-                <LogIn className="w-4 h-4" />
-                Sign In
-              </Button>
             </div>
           </div>
         )}
