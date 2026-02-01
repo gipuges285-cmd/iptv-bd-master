@@ -23,10 +23,16 @@ const ProductSection = ({ title, products, seeAllLink = "#", bgClass = "" }: Pro
       <div className="section-container">
         <div className="flex items-center justify-between mb-8">
           <h2 className="section-title">{title}</h2>
-          <Button variant="outline" className="group rounded-full border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-            See All Products
-            <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-          </Button>
+          <a 
+            href="https://wa.me/8801767046095" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            <Button variant="outline" className="group rounded-full border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+              See All Products
+              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </a>
         </div>
         
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
