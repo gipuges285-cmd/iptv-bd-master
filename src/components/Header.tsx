@@ -63,13 +63,6 @@ const Header = () => {
 
           {/* Cart & Sign In */}
           <div className="flex items-center gap-3">
-            <button className="relative p-2 hover:bg-muted rounded-full transition-colors">
-              <ShoppingCart className="w-6 h-6 text-foreground" />
-              <span className="absolute -top-1 -right-1 w-5 h-5 bg-primary text-primary-foreground text-xs font-bold rounded-full flex items-center justify-center">
-                0
-              </span>
-            </button>
-            <span className="text-sm font-medium hidden sm:block">0.00 ৳</span>
             
             <Button variant="default" className="hidden sm:flex items-center gap-2 bg-primary hover:bg-primary/90 rounded-full">
               <LogIn className="w-4 h-4" />
