@@ -2,87 +2,106 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* IPTV BD Design System - Matching subscriptionsbd.net style */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 @layer base {
   :root {
+    /* Core brand colors - Purple/Teal scheme */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 220 20% 20%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 20% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 20% 20%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Vibrant Purple */
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Teal/Cyan */
+    --secondary: 174 72% 56%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 10% 46%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Light Teal */
+    --accent: 174 72% 95%;
+    --accent-foreground: 174 72% 30%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 262 83% 58%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Custom brand colors */
+    --brand-purple: 262 83% 58%;
+    --brand-purple-dark: 262 83% 45%;
+    --brand-teal: 174 72% 56%;
+    --brand-teal-dark: 174 72% 40%;
+    --brand-gradient: linear-gradient(135deg, hsl(262 83% 58%) 0%, hsl(174 72% 56%) 100%);
+    --brand-gradient-hover: linear-gradient(135deg, hsl(262 83% 50%) 0%, hsl(174 72% 48%) 100%);
+    
+    /* Section backgrounds */
+    --section-light: 220 20% 98%;
+    --section-purple: 262 83% 97%;
+    --section-teal: 174 72% 97%;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --shadow-card: 0 2px 8px -2px rgb(0 0 0 / 0.08), 0 4px 16px -4px rgb(0 0 0 / 0.12);
+    --shadow-card-hover: 0 8px 24px -4px rgb(0 0 0 / 0.12), 0 12px 32px -8px rgb(0 0 0 / 0.16);
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 220 20% 10%;
+    --foreground: 0 0% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 220 20% 13%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 220 20% 13%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 262 83% 65%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 174 72% 50%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 220 14% 20%;
+    --muted-foreground: 220 10% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 174 72% 20%;
+    --accent-foreground: 174 72% 80%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 220 14% 20%;
+    --input: 220 14% 20%;
+    --ring: 262 83% 65%;
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -99,7 +118,153 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+@layer components {
+  /* Brand gradient button */
+  .btn-brand {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold text-white rounded-lg transition-all duration-300;
+    background: var(--brand-gradient);
+  }
+  
+  .btn-brand:hover {
+    background: var(--brand-gradient-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Product card styling */
+  .product-card {
+    @apply bg-card rounded-xl overflow-hidden transition-all duration-300;
+    box-shadow: var(--shadow-card);
+  }
+  
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  /* Category card */
+  .category-card {
+    @apply flex flex-col items-center justify-center p-4 bg-card rounded-xl transition-all duration-300 cursor-pointer;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .category-card:hover {
+    @apply bg-accent;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Section container */
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Section title */
+  .section-title {
+    @apply text-2xl md:text-3xl font-bold text-foreground;
+  }
+
+  /* Badge styles */
+  .badge-out-of-stock {
+    @apply absolute top-3 left-3 px-3 py-1 text-xs font-semibold text-white bg-red-500 rounded-full;
+  }
+
+  /* Announcement bar */
+  .announcement-bar {
+    @apply bg-gradient-to-r from-primary to-secondary text-white text-center py-2 text-sm font-medium;
+  }
+
+  /* Navigation dropdown */
+  .nav-dropdown {
+    @apply absolute top-full left-0 bg-card rounded-xl shadow-xl opacity-0 invisible transition-all duration-200 min-w-[220px] z-50;
+  }
+  
+  .nav-item:hover .nav-dropdown {
+    @apply opacity-100 visible;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-muted rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/30 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/50;
+  }
+}
+
+@layer utilities {
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--brand-gradient);
+  }
+
+  /* Section backgrounds */
+  .bg-section-light {
+    background-color: hsl(var(--section-light));
+  }
+  
+  .bg-section-purple {
+    background-color: hsl(var(--section-purple));
+  }
+  
+  .bg-section-teal {
+    background-color: hsl(var(--section-teal));
+  }
+
+  /* Price styling */
+  .price-text {
+    @apply text-primary font-bold;
+  }
+
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
