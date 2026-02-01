@@ -7,6 +7,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import logoImage from "@/assets/logo.png";
 
 const categories = [
   "Audio Streaming",
@@ -37,15 +38,18 @@ const Header = () => {
         <div className="flex items-center gap-10">
           {/* Logo */}
           <a href="/" className="flex items-center gap-3 shrink-0" aria-label="IPTVBD - Home">
-            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-violet-600 to-teal-500 flex items-center justify-center shadow-md">
-              <span className="text-white font-bold text-xl">IP</span>
-            </div>
+            <img 
+              src={logoImage} 
+              alt="PAID IPTV BD Logo" 
+              className="w-14 h-14 rounded-xl shadow-lg object-contain"
+            />
             <div className="hidden sm:block">
               <span className="text-2xl font-bold tracking-tight">
-                <span className="text-violet-600">IPTV</span>
-                <span className="text-teal-500">BD</span>
+                <span className="text-amber-500">PAID</span>
+                <span className="text-gray-800"> IPTV</span>
+                <span className="text-red-500">BD</span>
               </span>
-              <p className="text-[11px] text-gray-400 uppercase tracking-widest">PAIDI IPTV BD</p>
+              <p className="text-[11px] text-gray-400 uppercase tracking-widest">Premium Digital Shop</p>
             </div>
           </a>
 
