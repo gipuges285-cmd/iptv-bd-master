@@ -3,25 +3,25 @@ import { MessageCircle, X } from "lucide-react";
 
 const agents = [
   {
-    name: "Rahat Hossain",
+    name: "Ryan Adam",
     role: "Customer Support",
     status: "online",
     phone: "8801767046095",
-    avatar: "RH"
+    bgColor: "bg-gradient-to-br from-cyan-400 to-teal-500"
   },
   {
-    name: "Sakib Ahmed",
+    name: "Zayd Burhan",
     role: "Sales Executive", 
     status: "online",
     phone: "8801767046095",
-    avatar: "SA"
+    bgColor: "bg-gradient-to-br from-amber-400 to-orange-500"
   },
   {
-    name: "Fahim Rahman",
+    name: "Varun Yash",
     role: "Technical Support",
     status: "offline",
     phone: "8801767046095",
-    avatar: "FR"
+    bgColor: "bg-gradient-to-br from-blue-400 to-indigo-500"
   }
 ];
 
@@ -29,94 +29,60 @@ const WhatsAppButton = () => {
   const [isOpen, setIsOpen] = useState(false);
   
   return (
-    <>
-      {/* Floating WhatsApp Button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        aria-label="Open WhatsApp chat"
-        className="fixed bottom-20 md:bottom-6 right-4 md:right-6 z-50 group"
-      >
-        <div className="relative">
-          {/* Pulse ring */}
-          <div className="absolute inset-0 bg-green-500 rounded-full animate-ping opacity-25" />
-          
-          {/* Main button */}
-          <div className="relative w-14 h-14 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300">
-            {isOpen ? (
-              <X className="w-6 h-6 text-white" />
-            ) : (
-              <MessageCircle className="w-7 h-7 text-white" fill="white" />
-            )}
-          </div>
-          
-          {/* Notification badge */}
-          {!isOpen && (
-            <div className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center shadow-md border-2 border-white">
-              <span className="text-white text-[10px] font-bold">2</span>
-            </div>
-          )}
-        </div>
-      </button>
-
+    <div className="fixed bottom-6 right-6 z-[9999]">
       {/* Chat Widget Popup */}
       {isOpen && (
-        <div className="fixed bottom-36 md:bottom-24 right-4 md:right-6 z-50 w-80 animate-scale-in">
+        <div className="absolute bottom-20 right-0 w-[320px] mb-2 animate-fade-in">
           <div className="bg-white dark:bg-card rounded-2xl shadow-2xl overflow-hidden border border-border">
             {/* Header */}
-            <div className="bg-gradient-to-r from-green-500 to-green-600 p-4 relative">
+            <div className="bg-gradient-to-r from-emerald-400 to-teal-500 p-5 relative">
               <button 
                 onClick={() => setIsOpen(false)}
-                className="absolute top-3 right-3 w-7 h-7 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors"
+                className="absolute top-3 right-3 w-8 h-8 bg-slate-700/50 hover:bg-slate-700/70 rounded-full flex items-center justify-center transition-colors"
               >
                 <X className="w-4 h-4 text-white" />
               </button>
-              <p className="text-white text-sm font-medium pr-8">
+              <p className="text-white text-sm font-medium pr-10 leading-relaxed">
                 Click one of the agents below to chat on WhatsApp
               </p>
             </div>
             
             {/* Agents List */}
-            <div className="p-3 max-h-72 overflow-y-auto">
+            <div className="p-2">
               {agents.map((agent, idx) => (
                 <a
                   key={idx}
                   href={`https://wa.me/${agent.phone}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-3 rounded-xl hover:bg-muted transition-colors group"
+                  className="flex items-center gap-4 p-4 rounded-xl hover:bg-gray-50 dark:hover:bg-muted transition-colors group"
                 >
                   {/* Avatar */}
-                  <div className="relative">
-                    <div className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-semibold text-sm ${
-                      idx === 0 ? 'bg-gradient-to-br from-teal-400 to-teal-600' :
-                      idx === 1 ? 'bg-gradient-to-br from-amber-400 to-amber-600' :
-                      'bg-gradient-to-br from-blue-400 to-blue-600'
-                    }`}>
-                      {agent.avatar}
+                  <div className="relative flex-shrink-0">
+                    <div className={`w-12 h-12 rounded-full ${agent.bgColor} flex items-center justify-center shadow-md`}>
+                      <span className="text-white font-semibold text-sm">
+                        {agent.name.split(' ').map(n => n[0]).join('')}
+                      </span>
                     </div>
-                    {/* Status dot */}
-                    <div className={`absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full border-2 border-white ${
-                      agent.status === 'online' ? 'bg-green-500' : 'bg-gray-400'
-                    }`} />
                   </div>
                   
                   {/* Info */}
-                  <div className="flex-1">
-                    <h4 className="font-semibold text-foreground text-sm group-hover:text-green-600 transition-colors">
+                  <div className="flex-1 min-w-0">
+                    <h4 className="font-semibold text-foreground text-sm group-hover:text-emerald-600 transition-colors">
                       {agent.name}
                     </h4>
                     <p className="text-xs text-muted-foreground">{agent.role}</p>
                   </div>
                   
                   {/* Status */}
-                  <div className="flex items-center gap-1.5">
+                  <div className="flex items-center gap-1.5 flex-shrink-0">
                     <span className={`w-2 h-2 rounded-full ${
                       agent.status === 'online' ? 'bg-green-500' : 'bg-gray-400'
                     }`} />
                     <span className={`text-xs font-medium capitalize ${
-                      agent.status === 'online' ? 'text-green-600' : 'text-muted-foreground'
+                      agent.status === 'online' ? 'text-green-600' : 'text-gray-500'
                     }`}>
-                      {agent.status}
+                      {agent.status === 'online' ? 'Online' : 'Offline'}
                     </span>
                   </div>
                 </a>
@@ -124,15 +90,47 @@ const WhatsAppButton = () => {
             </div>
             
             {/* Footer */}
-            <div className="px-4 py-3 border-t border-border bg-muted/30">
-              <p className="text-xs text-muted-foreground text-center">
+            <div className="px-4 py-3 border-t border-gray-100 dark:border-border">
+              <p className="text-xs text-gray-400 text-center">
                 Typically replies in a few minutes
               </p>
             </div>
           </div>
         </div>
       )}
-    </>
+
+      {/* Floating WhatsApp Button */}
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        aria-label="Open WhatsApp chat"
+        className="relative group"
+      >
+        {/* Pulse ring */}
+        {!isOpen && (
+          <div className="absolute inset-0 bg-green-500 rounded-full animate-ping opacity-30" />
+        )}
+        
+        {/* Main button */}
+        <div className={`relative w-16 h-16 rounded-full flex items-center justify-center shadow-xl transition-all duration-300 ${
+          isOpen 
+            ? 'bg-gray-600 hover:bg-gray-700' 
+            : 'bg-gradient-to-br from-green-400 to-green-600 hover:from-green-500 hover:to-green-700 hover:scale-110'
+        }`}>
+          {isOpen ? (
+            <X className="w-7 h-7 text-white" />
+          ) : (
+            <MessageCircle className="w-8 h-8 text-white" fill="white" />
+          )}
+        </div>
+        
+        {/* Notification badge */}
+        {!isOpen && (
+          <div className="absolute -top-1 -right-1 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center shadow-lg border-2 border-white animate-bounce">
+            <span className="text-white text-xs font-bold">2</span>
+          </div>
+        )}
+      </button>
+    </div>
   );
 };
 
