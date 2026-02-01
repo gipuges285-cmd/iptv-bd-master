@@ -1,87 +1,71 @@
 import { Button } from "@/components/ui/button";
-import { CheckCircle, Shield, ArrowRight, Sparkles } from "lucide-react";
+import { CheckCircle, Shield, ArrowRight } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section className="py-8 bg-background overflow-hidden">
+    <section className="py-6 md:py-10 bg-background">
       <div className="section-container">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-5">
           {/* Main Hero Banner */}
-          <div className="lg:col-span-3 relative rounded-3xl overflow-hidden min-h-[400px] flex flex-col justify-center">
-            {/* Animated gradient background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-violet-100 via-purple-50 to-teal-50 dark:from-violet-950/30 dark:via-purple-950/20 dark:to-teal-950/20" />
+          <div className="lg:col-span-3 relative rounded-2xl overflow-hidden min-h-[380px] md:min-h-[420px] flex flex-col justify-center border border-border/50">
+            {/* Soft gradient background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-violet-50 via-white to-teal-50/50 dark:from-violet-950/40 dark:via-background dark:to-teal-950/30" />
             
-            {/* Glassmorphism overlay */}
-            <div className="absolute inset-0 backdrop-blur-[1px]" />
-            
-            {/* Animated orbs */}
-            <div className="absolute top-10 right-10 w-32 h-32 bg-gradient-to-br from-primary/30 to-secondary/30 rounded-full blur-2xl animate-pulse" />
-            <div className="absolute bottom-10 left-10 w-48 h-48 bg-gradient-to-br from-secondary/20 to-primary/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-violet-200/20 to-teal-200/20 dark:from-violet-500/10 dark:to-teal-500/10 rounded-full blur-3xl" />
-            
-            {/* Grid pattern overlay */}
-            <div className="absolute inset-0 opacity-[0.03]" style={{
-              backgroundImage: 'linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px)',
-              backgroundSize: '40px 40px'
+            {/* Subtle mesh overlay */}
+            <div className="absolute inset-0" style={{
+              background: 'radial-gradient(ellipse at 0% 0%, rgba(139, 92, 246, 0.08) 0%, transparent 50%), radial-gradient(ellipse at 100% 100%, rgba(20, 184, 166, 0.06) 0%, transparent 50%)'
             }} />
             
             {/* Content */}
-            <div className="relative z-10 p-8 md:p-10">
-              {/* Govt Badge */}
-              <div className="absolute top-4 right-4 md:top-6 md:right-6">
-                <div className="flex items-center gap-2 px-4 py-2 bg-white/60 dark:bg-white/10 backdrop-blur-md rounded-full border border-white/50 dark:border-white/20 shadow-lg">
-                  <Shield className="w-4 h-4 text-primary" />
-                  <span className="text-xs md:text-sm text-foreground/80 font-medium">Registered by the Govt. of Bangladesh</span>
-                </div>
+            <div className="relative z-10 p-6 md:p-10">
+              {/* Govt Badge - Top Right */}
+              <div className="absolute top-4 right-4 md:top-6 md:right-6 flex items-center gap-2 text-muted-foreground">
+                <Shield className="w-4 h-4 text-primary" />
+                <span className="text-xs md:text-sm">Registered by the Govt. of Bangladesh</span>
               </div>
               
               {/* Main Content */}
-              <div className="mt-8 md:mt-0">
-                <p className="text-muted-foreground mb-2 text-sm md:text-base">You're in Biggest shop for</p>
+              <div className="mt-6 md:mt-0">
+                <p className="text-muted-foreground mb-1 text-sm">You're in Biggest shop for</p>
                 
-                <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
-                  Digital products<br />
-                  <span className="bg-gradient-to-r from-primary via-violet-600 to-secondary bg-clip-text text-transparent">in Bangladesh</span>
+                <h1 className="text-3xl md:text-4xl lg:text-[42px] font-bold text-foreground mb-5 leading-tight">
+                  Digital products in Bangladesh
                 </h1>
                 
-                <p className="text-lg text-muted-foreground italic mb-6">Welcome to</p>
+                <p className="text-base md:text-lg text-muted-foreground italic mb-5">Welcome to</p>
                 
                 {/* Logo */}
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-full blur-md opacity-50 animate-pulse" />
-                    <div className="relative w-14 h-14 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-xl">
-                      <span className="text-white font-bold text-2xl">IP</span>
-                    </div>
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-11 h-11 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-md">
+                    <span className="text-white font-bold text-lg">IP</span>
                   </div>
-                  <span className="text-4xl font-bold">
-                    <span className="text-primary drop-shadow-sm">IPTV</span>
-                    <span className="text-secondary drop-shadow-sm">BD</span>
+                  <span className="text-3xl md:text-4xl font-bold tracking-tight">
+                    <span className="text-primary">IPTV</span>
+                    <span className="text-secondary">BD</span>
                   </span>
                 </div>
 
                 {/* Verification badges */}
-                <div className="flex flex-wrap items-center gap-4 md:gap-6 mb-8">
-                  <div className="flex items-center gap-2 px-4 py-2 bg-white/60 dark:bg-white/10 backdrop-blur-sm rounded-full border border-primary/20 shadow-sm">
+                <div className="flex flex-wrap items-center gap-5 mb-6">
+                  <div className="flex items-center gap-2">
                     <CheckCircle className="w-5 h-5 text-primary" />
-                    <span className="text-sm">Govt <span className="font-semibold text-foreground">Verified</span></span>
+                    <span className="text-sm text-muted-foreground">Govt <span className="font-semibold text-foreground">Verified</span></span>
                   </div>
-                  <div className="flex items-center gap-2 px-4 py-2 bg-white/60 dark:bg-white/10 backdrop-blur-sm rounded-full border border-secondary/20 shadow-sm">
+                  <div className="flex items-center gap-2">
                     <CheckCircle className="w-5 h-5 text-secondary" />
-                    <span className="text-sm">Authentic <span className="font-semibold text-foreground">Product</span></span>
+                    <span className="text-sm text-muted-foreground">Authentic <span className="font-semibold text-foreground">Product</span></span>
                   </div>
                 </div>
 
-                <p className="text-sm text-muted-foreground mb-8 uppercase tracking-wider leading-relaxed">
+                <p className="text-xs md:text-sm text-muted-foreground mb-6 uppercase tracking-widest leading-relaxed">
                   Get access to the largest collection<br />
                   of the educational OTT products in one place
                 </p>
 
                 <a href="https://wa.me/8801767046095" target="_blank" rel="noopener noreferrer">
-                  <Button className="btn-brand group px-8 py-6 text-base rounded-xl shadow-xl shadow-primary/25 hover:shadow-primary/40 transition-all duration-300">
-                    <Sparkles className="w-5 h-5" />
+                  <Button className="bg-primary hover:bg-primary/90 text-white px-6 py-5 rounded-lg font-semibold shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all duration-300 group">
                     Shop Now
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </a>
               </div>
@@ -89,21 +73,20 @@ const HeroSection = () => {
           </div>
 
           {/* Side Product Cards */}
-          <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-4">
+          <div className="lg:col-span-2 grid grid-cols-3 lg:grid-cols-1 gap-3 md:gap-4">
             {/* Autodesk Card */}
             <a 
               href="https://wa.me/8801767046095" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="group relative rounded-2xl overflow-hidden min-h-[120px] flex flex-col items-center justify-center text-center cursor-pointer"
+              className="group relative rounded-xl overflow-hidden min-h-[100px] lg:min-h-[120px] flex flex-col items-center justify-center text-center hover:scale-[1.02] transition-transform duration-300"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-950" />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#1e293b] to-[#0f172a]" />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               
-              <div className="relative z-10 p-6">
-                <span className="text-xl font-bold text-white mb-3 block tracking-wide group-hover:scale-105 transition-transform">AUTODESK</span>
-                <span className="inline-block text-sm bg-gradient-to-r from-primary/30 to-secondary/30 text-primary border border-primary/30 px-4 py-1.5 rounded-full backdrop-blur-sm group-hover:from-primary/40 group-hover:to-secondary/40 transition-all">
+              <div className="relative z-10 p-4">
+                <span className="text-base md:text-lg font-bold text-white mb-2 block tracking-wide">AUTODESK</span>
+                <span className="inline-block text-xs bg-primary/20 text-primary px-3 py-1 rounded border border-primary/30">
                   Products Collections
                 </span>
               </div>
@@ -114,17 +97,14 @@ const HeroSection = () => {
               href="https://wa.me/8801767046095" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="group relative rounded-2xl overflow-hidden min-h-[120px] flex flex-col items-center justify-center text-center cursor-pointer"
+              className="group relative rounded-xl overflow-hidden min-h-[100px] lg:min-h-[120px] flex flex-col items-center justify-center text-center hover:scale-[1.02] transition-transform duration-300"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-teal-400 via-emerald-500 to-teal-600" />
-              <div className="absolute inset-0 bg-gradient-to-t from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute inset-0 opacity-20" style={{
-                backgroundImage: 'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3) 0%, transparent 50%)'
-              }} />
+              <div className="absolute inset-0 bg-gradient-to-br from-teal-400 to-emerald-600" />
+              <div className="absolute inset-0 bg-gradient-to-t from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               
-              <div className="relative z-10 p-6">
-                <span className="text-2xl font-bold text-white mb-3 block group-hover:scale-105 transition-transform">Google</span>
-                <span className="inline-block text-sm bg-white/20 text-white border border-white/30 px-4 py-1.5 rounded-full backdrop-blur-sm group-hover:bg-white/30 transition-all">
+              <div className="relative z-10 p-4">
+                <span className="text-lg md:text-xl font-bold text-white mb-2 block">Google</span>
+                <span className="inline-block text-xs bg-slate-900/40 text-white px-3 py-1 rounded border border-white/20">
                   Products Collections
                 </span>
               </div>
@@ -135,15 +115,14 @@ const HeroSection = () => {
               href="https://wa.me/8801767046095" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="group relative rounded-2xl overflow-hidden min-h-[120px] flex flex-col items-center justify-center text-center cursor-pointer"
+              className="group relative rounded-xl overflow-hidden min-h-[100px] lg:min-h-[120px] flex flex-col items-center justify-center text-center hover:scale-[1.02] transition-transform duration-300"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900" />
-              <div className="absolute inset-0 bg-gradient-to-t from-secondary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-secondary/50 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#334155] to-[#1e293b]" />
+              <div className="absolute inset-0 bg-gradient-to-t from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               
-              <div className="relative z-10 p-6">
-                <span className="text-2xl font-bold text-white mb-3 block group-hover:scale-105 transition-transform">Microsoft</span>
-                <span className="inline-block text-sm bg-gradient-to-r from-primary/30 to-secondary/30 text-primary border border-primary/30 px-4 py-1.5 rounded-full backdrop-blur-sm group-hover:from-primary/40 group-hover:to-secondary/40 transition-all">
+              <div className="relative z-10 p-4">
+                <span className="text-lg md:text-xl font-bold text-white mb-2 block">Microsoft</span>
+                <span className="inline-block text-xs bg-primary/20 text-primary px-3 py-1 rounded border border-primary/30">
                   Products Collections
                 </span>
               </div>
@@ -156,71 +135,56 @@ const HeroSection = () => {
           href="https://wa.me/8801767046095" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="block mt-8 group"
+          className="block mt-6 group"
         >
-          <div className="relative rounded-3xl overflow-hidden">
+          <div className="relative rounded-2xl overflow-hidden">
             {/* Gradient background */}
             <div className="absolute inset-0 bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600" />
             
-            {/* Animated gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-shimmer" style={{
-              backgroundSize: '200% 100%',
-              animation: 'shimmer 3s ease-in-out infinite'
-            }} />
-            
-            {/* Mesh pattern overlay */}
-            <div className="absolute inset-0 opacity-30" style={{
-              backgroundImage: `radial-gradient(circle at 25% 25%, rgba(255,255,255,0.2) 0%, transparent 50%),
-                               radial-gradient(circle at 75% 75%, rgba(255,255,255,0.1) 0%, transparent 50%)`
+            {/* Subtle pattern */}
+            <div className="absolute inset-0 opacity-20" style={{
+              backgroundImage: `radial-gradient(circle at 20% 50%, rgba(255,255,255,0.15) 0%, transparent 40%),
+                               radial-gradient(circle at 80% 50%, rgba(255,255,255,0.1) 0%, transparent 40%)`
             }} />
             
             {/* Content */}
-            <div className="relative z-10 p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
-              <div className="text-center md:text-left flex-1">
-                {/* Badge */}
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/20 backdrop-blur-sm rounded-full mb-4 border border-white/30">
-                  <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                  <span className="text-white/90 text-sm font-medium">Available Now</span>
-                </div>
-                
-                <h2 className="text-3xl md:text-5xl font-black text-white mb-2 tracking-tight">
-                  Google AI Pro<span className="text-secondary">/ Ultra</span>
-                </h2>
-                <p className="text-white/80 text-lg mb-6">Premium Subscription Package</p>
-                
-                {/* Features grid */}
-                <div className="grid grid-cols-2 md:flex md:flex-wrap gap-3 md:gap-4">
-                  {[
-                    { icon: "✨", text: "Gemini App" },
-                    { icon: "🎮", text: "Play" },
-                    { icon: "🤖", text: "Latest AI" },
-                    { icon: "☁️", text: "100 GB Storage" }
-                  ].map((feature, idx) => (
-                    <div 
-                      key={idx} 
-                      className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-colors group-hover:scale-[1.02]"
-                    >
-                      <span className="text-lg">{feature.icon}</span>
-                      <span className="text-white text-sm font-medium">{feature.text}</span>
-                    </div>
-                  ))}
+            <div className="relative z-10 p-6 md:p-10">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div className="text-center md:text-left flex-1">
+                  {/* Badge */}
+                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/15 backdrop-blur-sm rounded-full mb-3 border border-white/20">
+                    <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                    <span className="text-white/90 text-xs font-medium">Available Now</span>
+                  </div>
+                  
+                  <h2 className="text-2xl md:text-4xl font-black text-white mb-1 tracking-tight">
+                    Google AI Pro<span className="text-secondary">/ Ultra</span>
+                  </h2>
+                  <p className="text-white/70 text-sm md:text-base mb-5">Premium Subscription Package</p>
+                  
+                  {/* Features */}
+                  <div className="flex flex-wrap justify-center md:justify-start gap-2 md:gap-3">
+                    {[
+                      { icon: "✨", text: "Gemini App" },
+                      { icon: "🎮", text: "Play" },
+                      { icon: "🤖", text: "Latest AI" },
+                      { icon: "☁️", text: "100 GB Storage" }
+                    ].map((feature, idx) => (
+                      <div 
+                        key={idx} 
+                        className="flex items-center gap-1.5 px-3 py-1.5 bg-white/10 backdrop-blur-sm rounded-lg border border-white/15 hover:bg-white/15 transition-colors"
+                      >
+                        <span className="text-sm">{feature.icon}</span>
+                        <span className="text-white text-xs font-medium">{feature.text}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
-            
-            {/* Bottom gradient fade */}
-            <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-secondary via-white/50 to-secondary" />
           </div>
         </a>
       </div>
-      
-      {/* Custom animation keyframes */}
-      <style>{`
-        @keyframes shimmer {
-          0% { background-position: -200% 0; }
-          100% { background-position: 200% 0; }
-        }
-      `}</style>
     </section>
   );
 };
